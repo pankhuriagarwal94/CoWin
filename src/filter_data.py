@@ -1,4 +1,5 @@
 from config import MIN_AGE_LIMIT
+from notification import beep_notification
 
 res = []
 
@@ -20,6 +21,7 @@ def filter(data):
         for session in session_data:
             if session.get('min_age_limit', 1000) <= MIN_AGE_LIMIT and session.get('available_capacity', 0)>0:
                 print("FOUND MATCHING CENTER")
+                beep_notification()
                 print(session, center_details)
                 res.append({**center_details, **session})
 

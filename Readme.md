@@ -8,6 +8,5 @@ Python > 3.0
 Docker
 
 # Steps to Run
-1. Change District code in Dockerfile (ENV DISTRICT_CODE=637)
-2. Build dockerfile
-3. Run docker container
+1. Build dockerfile (docker build -t cowin:test .)
+2. Run docker container(docker run -it --env DISTRICT_CODE=<your_district_code> cowin:test)

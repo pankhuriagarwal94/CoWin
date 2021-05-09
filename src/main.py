@@ -1,4 +1,5 @@
 import os
+import sys
 import time
 from config import SLEEP_TIME
 from fetch_cowin_data import fetch_data
@@ -20,8 +21,9 @@ def process(district_code):
         print("No Match found")
 
 
-def main():
-    district_code = os.environ.get('DISTRICT_CODE', '637')
+def main(args):
+    district_code = os.environ.get('DISTRICT_CODE', '637') or '637'
+    print("reading for", district_code)
     while True:
         print("Starting Process")
         process(district_code)
@@ -31,4 +33,5 @@ def main():
 
 
 if __name__=="__main__":
-    main()
+    args = sys.argv[1:]
+    main(args)

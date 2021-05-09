@@ -1,12 +1,13 @@
-FROM python:3.8-slim-buster
+FROM python:3.8
 
 WORKDIR /app
 
+RUN apt-get update
+RUN apt-get install -y python3-dev libasound2-dev
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
 COPY src src
-ENV DISTRICT_CODE=637
 
 CMD ["python3", "src/main.py"]
 
